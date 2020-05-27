@@ -12,16 +12,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
  * Code smells are kept for reference.
  * This class is kept for code snippets.
  * @author enocs
- *
+ * @deprecated
  */
 public class TestSelenium {
 
 	public static void main(String[] args) {
 		
 		// 1) Set up the driver executable
-//		System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\enocs\\Documents\\Selenium Drivers\\chromedriver_win32\\chromedriver.exe");
-//		System.setProperty("webdriver.gecko.driver","C:\\Program Files\\Firefox Developer Edition\\firefox.exe");
+		System.setProperty("webdriver.chrome.driver",System.getenv("CHROMEDRIVER_PATH") + "chromedriver.exe");
 
 		/* 2) Initialize your chromedriver
 		 * Available Drivers:
@@ -42,9 +40,9 @@ public class TestSelenium {
 		//wd.manage().window().maximize();
 		
 		// 5) Open browser to a URL
-//		wd.get("https://www.microsoft.com");
+		wd.get("https://www.microsoft.com");
 //		wd.get("https://localhost:8080");
-		wd.get("https://localhost:4200");
+//		wd.get("https://localhost:4200");
 //		wd.get("https://www.stackexchange.com");
 //		wd.navigate().to("http://sqa.stackexchange.com");
 		
@@ -53,12 +51,12 @@ public class TestSelenium {
 //		String s = h1.getAttribute("innerHTML");
 //		System.out.println("Found h1 element: " + s.equals("Credit Loan Form"));
 
-//		WebElement h1 = wd.findElement(By.xpath("/html/head/title"));
-//		String s = h1.getAttribute("innerHTML");
-//		System.out.println("Found title element: " + s.equals("Microsoft - Official Home Page"));
+		WebElement h1 = wd.findElement(By.xpath("/html/head/title"));
+		String s = h1.getAttribute("innerHTML");
+		System.out.println("Found title element: " + s.equals("Microsoft - Official Home Page"));
 
 		// 6) Close Browser
-//		wd.close();
+		wd.close();
 		System.out.println("Finished");
 	}
 
