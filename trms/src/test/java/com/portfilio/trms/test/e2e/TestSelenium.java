@@ -8,6 +8,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 
+/**
+ * Code smells are kept for reference.
+ * This class is kept for code snippets.
+ * @author enocs
+ *
+ */
 public class TestSelenium {
 
 	public static void main(String[] args) {
