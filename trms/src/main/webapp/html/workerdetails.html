@@ -8,83 +8,106 @@
 	<h1>Reimbursement Details</h1>
 	<h4>Aute laborum quis velit minim nisi.</h4>
 
-	<table>
-		<tr id="nameId">
-			<th>Name</th>
-			<td></td>
-		</tr>
-		<tr id="empId">
-			<th>Employee ID</th>
-			<td></td>
-		</tr>
-		<tr id="emailId">
-			<th>Email</th>
-			<td></td>
-		</tr>
-		<tr id="phoneId">
-			<th>Phone Number</th>
-			<td></td>
-		</tr>
-		<tr id="addressId">
-			<th>Employee Address</th>
-			<td></td>
-		</tr>
-		<tr id="dateId">
-			<th>Date of Event</th>
-			<td></td>
-		</tr>
-		<tr id="timeId">
-			<th>Time of Event</th>
-			<td></td>
-		</tr>
-		<tr id="locationId">
-			<th>Address of Event</th>
-			<td></td>
-		</tr>
-		<tr id="descriptionId">
-			<th>Description</th>
-			<td></td>
-		</tr>
-		<tr id="costId">
-			<th>Cost</th>
-			<td></td>
-		</tr>
-		<tr id="gradingFormatId">
-			<th>Grading Format</th>
-			<td></td>
-		</tr>
-		<tr id="passingGradeId">
-			<th>Passing Grade</th>
-			<td></td>
-		</tr>
-		<tr id="typeId">
-			<th>Type of Event</th>
-			<td></td>
-		</tr>
-		<tr id="justificationId">
-			<th>Justification</th>
-			<td></td>
-		</tr>
-		<tr id="attachmentId">
-			<th>Document Attachments</th>
-			<td></td>
-		</tr>
-		<tr id="approvalAttachmentId">
-			<th>Approval Email</th>
-			<td></td>
-		</tr>
-		<tr id="approvalTypeId">
-			<th>Approval Type</th>
-			<td></td>
-		</tr>
-		<tr id="workMissedId">
-			<th>Projected Missed Work</th>
-			<td></td>
-		</tr>
-		<tr id="expectedReimbursementId">
-			<th>Projected Reimbursement</th>
-			<td></td>
-		</tr>
-	</table>
+	<fieldset>
+		<legend>Personal Info</legend>
+		<table>
+			<tr id="nameId">
+				<th>Name</th>
+				<td></td>
+			</tr>
+			<tr id="empId">
+				<th>Employee ID</th>
+				<td></td>
+			</tr>
+			<tr id="emailId">
+				<th>Email</th>
+				<td></td>
+			</tr>
+			<tr id="phoneId">
+				<th>Phone Number</th>
+				<td></td>
+			</tr>
+			<tr id="addressId">
+				<th>Employee Address</th>
+				<td></td>
+			</tr>
+		</table>
+	</fieldset>
+
+	<fieldset>
+		<legend>Event Info</legend>
+		<table>
+			<tr id="dateId">
+				<th>Date of Event</th>
+				<td></td>
+			</tr>
+			<tr id="timeId">
+				<th>Time of Event</th>
+				<td></td>
+			</tr>
+			<tr id="locationId">
+				<th>Address of Event</th>
+				<td></td>
+			</tr>
+			<tr id="descriptionId">
+				<th>Description</th>
+				<td></td>
+			</tr>
+			<tr id="costId">
+				<th>Cost</th>
+				<td></td>
+			</tr>
+			<tr id="gradingFormatId">
+				<th>Grading Format</th>
+				<td></td>
+			</tr>
+			<tr id="passingGradeId">
+				<th>Passing Grade</th>
+				<td></td>
+			</tr>
+			<tr id="typeId">
+				<th>Type of Event</th>
+				<td></td>
+			</tr>
+			<tr id="justificationId">
+				<th>Justification</th>
+				<td></td>
+			</tr>
+		</table>
+	</fieldset>
+
+	<fieldset>
+		<legend>Optional</legend>
+		<table>
+			<tr id="attachmentId">
+				<th>Document Attachments</th>
+				<td></td>
+			</tr>
+			<tr id="approvalAttachmentId">
+				<th>Approval Email</th>
+				<td></td>
+			</tr>
+			<tr id="approvalTypeId">
+				<th>Approval Type</th>
+				<td></td>
+			</tr>
+			<tr id="workMissedId">
+				<th>Projected Missed Work</th>
+				<td></td>
+			</tr>
+			<tr id="expectedReimbursementId">
+				<th>Projected Reimbursement</th>
+				<td></td>
+			</tr>
+		</table>
+	</fieldset>
+	<br>
+	<button id="">Deny</button>
+	<br>
+	<textarea id="denialReasonId" placeholder="Reason for denial..."></textarea>
+	<br>
+	<button id="">Approve</button>
+	<br>
+	<button id="">Confirm Presentation</button>
 </body>
 </html>
