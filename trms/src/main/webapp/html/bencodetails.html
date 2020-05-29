@@ -81,11 +81,15 @@
 		<table>
 			<tr id="attachmentId">
 				<th>Document Attachments</th>
-				<td></td>
+				<td download>
+					<a href="link/to/your/download/file.pdf" download>proofOfPassingDoc</a>
+				</td>
 			</tr>
 			<tr id="approvalAttachmentId">
 				<th>Approval Email</th>
-				<td></td>
+				<td download>
+					<a href="link/to/your/download/email.msg" download>Approval Email</a>
+				</td>
 			</tr>
 			<tr id="approvalTypeId">
 				<th>Approval Type</th>
@@ -102,12 +106,20 @@
 		</table>
 	</fieldset>
 	<br>
-	<button id="">Deny</button>
+	<button id="bencoApprovalBtnId">Information Complete</button>
 	<br>
-	<textarea type="" id="denialReasonId" placeholder="Reason for denial..."></textarea>
+	<button id="alterBtnId">Alter</button>
 	<br>
-	<button id="">Approve</button>
+	<textarea id="exceedingReasonTextId" placeholder="Reason for exceeding reimbursement limit..."></textarea>
 	<br>
-	<button id="">Confirm Presentation</button>
+	<button id="approvalBtnId">Approve</button>
+	<br>
+	<label for="approvalType"></label>
+	<select name="approvalType" id="approvalTypeId">
+		<options value="ds">Direct Supervisor</options>
+		<options value="dh">Department Head</options>
+	</select>
+	<br>
+	<button id="confirmBtnId">Confirm Passing Grade</button>
 </body>
 </html>
