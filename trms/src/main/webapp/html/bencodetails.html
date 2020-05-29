@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TRMS</title>
+</head>
+
+<body>
+	<h1>Reimbursement Details</h1>
+	<h4>Ipsum pariatur eiusmod aliqua officia culpa in.</h4>
+
+	<fieldset>
+		<legend>Personal Info</legend>
+		<table>
+			<tr id="nameId">
+				<th>Name</th>
+				<td></td>
+			</tr>
+			<tr id="empId">
+				<th>Employee ID</th>
+				<td></td>
+			</tr>
+			<tr id="emailId">
+				<th>Email</th>
+				<td></td>
+			</tr>
+			<tr id="phoneId">
+				<th>Phone Number</th>
+				<td></td>
+			</tr>
+			<tr id="addressId">
+				<th>Employee Address</th>
+				<td></td>
+			</tr>
+		</table>
+	</fieldset>
+
+	<fieldset>
+		<legend>Event Info</legend>
+		<table>
+			<tr id="dateId">
+				<th>Date of Event</th>
+				<td></td>
+			</tr>
+			<tr id="timeId">
+				<th>Time of Event</th>
+				<td></td>
+			</tr>
+			<tr id="locationId">
+				<th>Address of Event</th>
+				<td></td>
+			</tr>
+			<tr id="descriptionId">
+				<th>Description</th>
+				<td></td>
+			</tr>
+			<tr id="costId">
+				<th>Cost</th>
+				<td></td>
+			</tr>
+			<tr id="gradingFormatId">
+				<th>Grading Format</th>
+				<td></td>
+			</tr>
+			<tr id="passingGradeId">
+				<th>Passing Grade</th>
+				<td></td>
+			</tr>
+			<tr id="typeId">
+				<th>Type of Event</th>
+				<td></td>
+			</tr>
+			<tr id="justificationId">
+				<th>Justification</th>
+				<td></td>
+			</tr>
+		</table>
+	</fieldset>
+
+	<fieldset>
+		<legend>Other</legend>
+		<table>
+			<tr id="attachmentId">
+				<th>Document Attachments</th>
+				<td download>
+					<a href="link/to/your/download/file.pdf" download>proofOfPassingDoc</a>
+				</td>
+			</tr>
+			<tr id="approvalAttachmentId">
+				<th>Approval Email</th>
+				<td download>
+					<a href="link/to/your/download/email.msg" download>Approval Email</a>
+				</td>
+			</tr>
+			<tr id="approvalTypeId">
+				<th>Approval Type</th>
+				<td></td>
+			</tr>
+			<tr id="workMissedId">
+				<th>Projected Missed Work</th>
+				<td></td>
+			</tr>
+			<tr id="expectedReimbursementId">
+				<th>Projected Reimbursement</th>
+				<td></td>
+			</tr>
+		</table>
+	</fieldset>
+	<br>
+	<button id="bencoApprovalBtnId">Information Complete</button>
+	<br>
+	<button id="alterBtnId">Alter</button>
+	<br>
+	<input id="alterAmountId" placeholder="Enter Amount"/>
+	<button id="alterAmountBtnId">Apply Reimbursement Change</button>
+	<br>
+	<div id="alterAmountMsgId">
+		<p>Must Contact Employee upon altering reimbursement amount</p>
+	</div>
+	<div id="exceedingAmountMsgId">
+		<p>The amount goes $X.XX over the limit.</p>
+	</div>
+	<textarea id="exceedingReasonTextId" placeholder="Reason for exceeding reimbursement limit..."></textarea>
+	<button id="exceedingBtnId">Confirm exceeding limit</button>
+	<br>
+	<button id="approvalBtnId">Approve</button>
+	<br>
+	<label for="approvalType">Confirm Approval Type</label>
+	<select name="approvalType" id="approvalTypeId" name="approvalType">
+		<option value="ds">Direct Supervisor</options>
+		<option value="dh">Department Head</options>
+	</select>
+	<br>
+	<button id="confirmBtnId">Confirm Passing Grade</button>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TRMS</title>
+</head>
+
+<body>
+	<h1>Fugiat aute elit cillum irure id consequat est elit ea quis est.</h1>
+	<h4>Sint officia consectetur amet deserunt enim deserunt elit nisi reprehenderit voluptate.</h4>
+
+    <form id="requestFormId">
+	<fieldset>
+        <legend>Personal Info</legend>
+        <input id="nameId" placeholder="Name"/>
+        <br>
+        <input id="emailId" placeholder="Email"/>
+        <br>
+        <input id="phoneId" placeholder="Phone Number"/>
+        <br>
+        <input id="addressId" placeholder="Address"/>
+	</fieldset>
+        <br>
+        <br>
+
+	<fieldset>
+		<legend>Event Info</legend>
+        <input type="date" id="dateId"/>
+        <br>
+        <input type="time" id="timeId" placeholder=""/>
+        <br>
+        <input id="locationId" placeholder="Address"/>
+        <br>
+        <textarea id="descriptionId" placeholder="Description..."></textarea>
+        <br>
+        <input id="costId" placeholder="$0.00"/>
+        <br>
+
+        <label for="gradingFormat"></label>
+        <!-- TODO: This <select> tag will populate its menu based on what is in
+            the database. -->
+        <select id="gradingFormatId" name="gradingFormat">
+            <option value="s">Standard</option>
+            <option value="pf">Pass/Fail</option>
+        </select>
+        <br>
+
+        <label for="passingGrade"></label>
+        <!-- TODO: This <div> tag will be populated with appropriate values
+            Determined by the gradingFormat chosen above.-->
+        <div id="passingGradeDivId">
+            <select id="passingGradeId" name="passingGrade">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+                <option value="d">D</option>
+            </select>
+        </div>
+        <br>
+
+        <label for="type"></label>
+        <!-- TODO: The <select> tag will have its values populated by database values. -->
+        <select id="typeId" name="type">
+            <option value="cc">College Course</option>
+        </select>
+        <br>
+
+        <textarea id="justificationId" placeholder="Justification for Reimbursement..."></textarea>
+        <br>
+    </fieldset>
+    <br>
+    <br>
+
+	<fieldset>
+        <legend>Optional</legend>
+        <label id="attachment">Attach any relevant files:</label>
+        <input id="attachmentId" type="file" name="attachment"/>
+        <br>
+        <label id="opprovalAttachment">Attach email of approval (.msg file):</label>
+        <input id="opprovalAttachmentId" type="file" name="opprovalAttachment"/>
+        <br>
+	    <label for="approvalType">Confirm Approval Type</label>
+	    <select name="approvalType" id="approvalTypeId" name="approvalType">
+	    	<option value="ds">Direct Supervisor</options>
+	    	<option value="dh">Department Head</options>
+	    </select>
+        <br>
+        <textarea id="workMissedId" placeholder="Describe work missed..."></textarea>
+        <br>
+        <div id="expectedReimbursementDivId">
+            <p>Projected Reimbursement: $100.00</p>
+        </div>
+    </fieldset>
+    </form>
+	<br>
+	<button id="submitBtnId">Submit</button>
+</body>
+</html>
