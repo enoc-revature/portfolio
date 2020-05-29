@@ -1,0 +1,183 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Candara;}{\f1\fnil Candara;}{\f2\fnil\fcharset2 Symbol;}}
+{\*\generator Riched20 10.0.18362}\viewkind4\uc1 
+\pard\keep\keepn\sb240\sl240\slmult1\b\f0\fs40\lang9\par
+Tuition Reimbursement Management System\par
+\fs22 Last Updated: \b0 2020-05-29\par
+\b Engineers\b0\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\keep\keepn\fi-360\li720\sb240\sl240\slmult1 Enoc Santiago\par
+
+\pard\keep\keepn\sb240\sl240\slmult1\b Document Authors\b0\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\keep\keepn\fi-360\li720\sb240\sl240\slmult1 Enoc Santiago\par
+
+\pard\keep\keepn\sb240\sl240\slmult1\b Document Reviewers\b0\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\keep\keepn\fi-360\li720\sb240\sl240\slmult1 (None)\par
+
+\pard\keep\keepn\sb240\sl240\slmult1\b\fs32\par
+TRMS Overview\par
+
+\pard\sl240\slmult1\b0\fs22 The purpose of TRMS is to provide a system that encourages quality knowledge growth relevant to an individual\rquote s expertise.   Currently, TRMS provides reimbursements for university courses, seminars, certification preparation classes, certifications, and technical training.  The decision has been made to develop a BPM solution for this system to improve the timeliness and accuracy of approvals.  The current system relies solely on email communication, requiring manual lookups of available funds and is error-prone due to inbox clutter and incorrect routing of tasks.  Furthermore, there is no way to record and report on reimbursements awarded, and so the company has no way to identify highly-invested courses that could be developed to be offered in-house.\par
+
+\pard\keep\keepn\sb40\sl240\slmult1\b\fs24 Business Rules\fs32\par
+
+\pard\sl240\slmult1\b0\fs22 Each employee is allowed to claim \b up to $1000 \b0 in tuition \b reimbursement \b0 a year.  The amount available to an employee \b is reset on the new year\b0 . \par
+Event types have different standard reimbursement coverage: \par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 University Courses 80%\par
+{\pntext\f2\'B7\tab}Seminars 60%\par
+{\pntext\f2\'B7\tab}Certification Preparation Classes 75%\par
+{\pntext\f2\'B7\tab}Certification 100%\par
+{\pntext\f2\'B7\tab}Technical Training 90%\par
+{\pntext\f2\'B7\tab}Other 30%\par
+
+\pard\sl240\slmult1 After a BenCo has approved a reimbursement, the reimbursement is \b pending until a passing grade or presentation \b0 over the event is provided.\par
+The monetary amount available for an employee to reimburse is defined by the following equation:\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 AvailableReimburstment = TotalReimburstment ($1000) \f1\endash\f0  PendingReimburstments \f1\endash\f0  AwardedReimburstments.  \par
+
+\pard\sl240\slmult1 If the projected reimbursement for an event exceeds the available reimbursement amount, it is adjusted to the amount available.  Reimbursements do not cover course materials such as books.\par
+
+\pard\keep\keepn\sb240\sl240\slmult1\b\fs40 Complete the Tuition Reimbursement Form\par
+
+\pard\sl240\slmult1\b0\fs22 All Employees must \b complete \b0 the Tuition Reimbursement \b form one week prior to the start of the event\b0  (event = when classes start or cert exam is taken).  \par
+This form must collect (\b required\b0 ): \par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 basic employee information\par
+{\pntext\f2\'B7\tab}date\par
+{\pntext\f2\'B7\tab}time\par
+{\pntext\f2\'B7\tab}location\par
+{\pntext\f2\'B7\tab}description\par
+{\pntext\f2\'B7\tab}cost\par
+{\pntext\f2\'B7\tab}grading format\par
+{\pntext\f2\'B7\tab}type of event\par
+{\pntext\f2\'B7\tab}work-related justification\par
+
+\pard\sl240\slmult1 The employee can \b optionally \b0 include: \par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 event-related attachments of pdf, png, jpeg, txt, or doc file type\par
+{\pntext\f2\'B7\tab}attachments of approvals already provided of .msg (Outlook Email File) file type\par
+{\pntext\f2\'B7\tab}type of approval\par
+{\pntext\f2\'B7\tab}work time that will be missed\par
+
+\pard\sl240\slmult1 The projected reimbursement should be provided as a read-only field.\par
+
+\pard\keep\keepn\sb40\sl240\slmult1\b\fs24 Business Rules\fs32\par
+
+\pard\sl240\slmult1\b0\fs22 Grading formats are pulled from a reference table.  Certain grading formats require the employee to perform a presentation to management after the event\rquote s completion and prior to awarded reimbursement.  A passing grade is needed for reimbursement otherwise.  Employee must provide the passing grade cutoff for the course, or choose to use a default passing grade if unknown.  If an employee provides an approval email, that approval step is skipped (cannot skip BenCo Approval).  If the course is < 2 weeks from beginning, the request is marked urgent.\par
+A reimbursement request will have the following status types: \par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 NEW (Not Reviewed)\par
+{\pntext\f2\'B7\tab}NEEDS_MORE_INFO\par
+{\pntext\f2\'B7\tab}ALTERED (BenCo altered the reimbursement amount and is waiting for employee approval.  The employee may cancel requests whose amount has been altered.)\par
+{\pntext\f2\'B7\tab}CANCELLED (Canceled by employee when reimbursement was adjusted by BenCo)\par
+{\pntext\f2\'B7\tab}CONFIRMED (Employee has confirmed the altered reimbursement amount)\par
+{\pntext\f2\'B7\tab}AWAITING_DECISION (Approved by BenCo, BenCo cannot deny a request)\par
+{\pntext\f2\'B7\tab}DENIED\par
+{\pntext\f2\'B7\tab}DS_APPROVED (approved by direct supervisor)\par
+{\pntext\f2\'B7\tab}APPROVED (approved by department head)\par
+{\pntext\f2\'B7\tab}PENDING_PASSING (Approved but waiting for passing grade or presentation)\par
+{\pntext\f2\'B7\tab}AWARDED\par
+
+\pard\keep\keepn\sb240\sl240\slmult1\b\fs40 Direct Supervisor Approval\par
+
+\pard\sl240\slmult1\b0\fs22 The direct supervisor must provide approval for Tuition Reimbursement.  The Direct Supervisor can request additional information from the employee before approval. \par
+
+\pard\keep\keepn\sb40\sl240\slmult1\b\fs24 Business Rules\fs32\par
+
+\pard\sl240\slmult1\b0\fs22 If denied, the Direct Supervisor must provide a reason.  If the direct supervisor is also a department head, then the department head approval is skipped.  If the direct supervisor does not complete this task in a timely matter, the request is auto-approved. \par
+
+\pard\keep\keepn\sb240\sl240\slmult1\b\fs40 Department Head Approval\par
+
+\pard\sl240\slmult1\b0\fs22 The department head must provide approval for Tuition Reimbursement.  The Department Head can request additional information from the employee or direct supervisor before approval.\par
+
+\pard\keep\keepn\sb40\sl240\slmult1\b\fs24 Business Rules\fs32\par
+
+\pard\sl240\slmult1\b0\fs22 If the Department Head does not complete this task in a timely matter, the request is auto-approved.  (Note, a department head has reports_to set to null)\par
+
+\pard\keep\keepn\sb240\sl240\slmult1\b\fs40 Benefits Coordinator Approval\par
+
+\pard\sl240\slmult1\b0\fs22 The BenCo must provide approval for Tuition Reimbursement.   This stage is not skippable for any reason.  The BenCo can request additional information from the employee, direct supervisor, or department head before approval. The BenCo has the ability to alter the reimbursement amount.\par
+
+\pard\keep\keepn\sb40\sl240\slmult1\b\fs24 Business Rules\fs32\par
+
+\pard\sl240\slmult1\b0\fs22 If the BenCo changes the reimbursement amount, the Employee should be notified and given the option to cancel the request.  If the BenCo does not approval in a timely matter, an escalation email should be sent to the BenCo\rquote s direct supervisor.  The BenCo is allowed to \b award \b0 an amount \b larger than the amount available \b0 (surpassing $1000 available) for the employee.  The BenCo must provide reason for this, and the reimbursement must be marked as exceeding available funds for reporting purposes.\par
+
+\pard\keep\keepn\sb240\sl240\slmult1\b\fs40 Grade/Presentation Upload\par
+
+\pard\sl240\slmult1\b0\fs22 Upon completion of the event, the employee should attach either the Grade or Presentation as appropriate.  After upload of a grade, the BenCo must confirm that the grade is passing.  After upload of a presentation, the direct manager must confirm that the presentation was satisfactory and presented to the appropriate parties.  Upon confirmation, the amount is awarded to the requestor.\par
+
+\pard\keep\keepn\sb40\sl240\slmult1\b\fs24 Business Rules\fs32\par
+
+\pard\sl240\slmult1\b0\fs22 Only interested parties should be able to access the grades/presentations.  Interested parties include the requestor and approvers.  \par
+\par
+\par
+\b\fs40 Endpoint Mappings (url <-> class)\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1\b0\fs24 /, /login\tab AuthServlet\par
+{\pntext\f2\'B7\tab}/benco\tab\tab BenCoServlet\par
+{\pntext\f2\'B7\tab}/worker\tab WorkerServlet\par
+
+\pard\sl240\slmult1\b\fs40\par
+Sprint Timeline\par
+\b0\fs24 Sprint 1)\par
+FROM: 2020-05-26, Tuesday 9am\par
+TO: 2020-05-29, Friday 2pm\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 Set up development environment\par
+{\pntext\f2\'B7\tab}Write design document\par
+{\pntext\f2\'B7\tab}Write user stories\par
+{\pntext\f2\'B7\tab}Stipulate pages and enpoints\par
+{\pntext\f2\'B7\tab}Have scrumboard reflect user stories\par
+{\pntext\f2\'B7\tab}Write unstyled HTML pages\par
+{\pntext\f2\'B7\tab}Write e2e Selenium tests for static HTML pages\par
+
+\pard\sl240\slmult1\par
+Sprint 2)\par
+FROM: 2020-06-01, Monday 9am\par
+TO: 2020-06-05, Friday 2pm\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 Design database\par
+{\pntext\f2\'B7\tab}Create all required functions and procedures\par
+{\pntext\f2\'B7\tab}Create all triggers and schedules\par
+{\pntext\f2\'B7\tab}Write unit tests for DAO layer\par
+{\pntext\f2\'B7\tab}Write integration tests for SQL code\par
+
+\pard\sl240\slmult1\fs22\par
+\fs24 Sprint 3)\par
+FROM: 2020-06-08, Monday 9am\par
+TO: 2020-06-12, Friday 2pm\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 Business logic classes with tests\par
+{\pntext\f2\'B7\tab}Authentication logic and redirection with tests\par
+{\pntext\f2\'B7\tab}Servlet layer with tests\par
+{\pntext\f2\'B7\tab}Integration tests to tests Controller to Database and back\par
+{\pntext\f2\'B7\tab}Write and save tests with Postman\par
+
+\pard\sl240\slmult1\fs22\par
+\fs24 Sprint 4)\par
+FROM: 2020-06-15, Monday 9am\par
+TO: 2020-06-19, Friday 2pm\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 Create AJAX methods that connect to back-end with integration test to backend.  The AJAX methods just have to touch all back-end endpoints.\par
+{\pntext\f2\'B7\tab}jQuery to collect data from forms and listen to buttons\par
+{\pntext\f2\'B7\tab}Style pages using Bootstrap 4 and Bootswatch\par
+{\pntext\f2\'B7\tab}Run e2e tests\par
+
+\pard\sl240\slmult1\fs22\par
+\fs24 Sprint 5)\par
+FROM: 2020-06-22, Monday 9am\par
+TO: 2020-06-26, Friday 2pm\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 Host database\par
+{\pntext\f2\'B7\tab}Host web app (This will be the hardest part for me)\par
+
+\pard\sl240\slmult1\fs22\par
+\par
+\par
+\par
+\par
+\par
+}
+ 
