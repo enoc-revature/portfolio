@@ -44,7 +44,7 @@ The monetary amount available for an employee to reimburse is defined by the fol
 \pard\sl240\slmult1\b0\fs22 All Employees must \b complete \b0 the Tuition Reimbursement \b form one week prior to the start of the event\b0  (event = when classes start or cert exam is taken).  \par
 This form must collect (\b required\b0 ): \par
 
-\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 basic employee information\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 basic employee information (Require in the case that it doesn't already exist in the database.  Auto-populate if it does)\par
 {\pntext\f2\'B7\tab}date\par
 {\pntext\f2\'B7\tab}time\par
 {\pntext\f2\'B7\tab}location\par
@@ -115,9 +115,11 @@ A reimbursement request will have the following status types: \par
 \par
 \b\fs40 Endpoint Mappings (url <-> class)\par
 
-\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1\b0\fs24 /, /login\tab AuthServlet\par
-{\pntext\f2\'B7\tab}/benco\tab\tab BenCoServlet\par
-{\pntext\f2\'B7\tab}/worker\tab WorkerServlet\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1\b0\fs24 /, /login\tab\tab AuthServlet\par
+{\pntext\f2\'B7\tab}/benco\tab\tab\tab BenCoServlet\par
+{\pntext\f2\'B7\tab}/worker\tab\tab WorkerServlet\par
+{\pntext\f2\'B7\tab}/benco/details\tab\tab BenCoDetailsServlet\par
+{\pntext\f2\'B7\tab}/worker/details\tab WorkerDetailsServlet\par
 
 \pard\sl240\slmult1\b\fs40\par
 Sprint Timeline\par
@@ -139,6 +141,7 @@ FROM: 2020-06-01, Monday 9am\par
 TO: 2020-06-05, Friday 2pm\par
 
 \pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 Design database\par
+{\pntext\f2\'B7\tab}Create all tables, test data, and dev data\par
 {\pntext\f2\'B7\tab}Create all required functions and procedures\par
 {\pntext\f2\'B7\tab}Create all triggers and schedules\par
 {\pntext\f2\'B7\tab}Write unit tests for DAO layer\par
@@ -161,7 +164,7 @@ FROM: 2020-06-15, Monday 9am\par
 TO: 2020-06-19, Friday 2pm\par
 
 \pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 Create AJAX methods that connect to back-end with integration test to backend.  The AJAX methods just have to touch all back-end endpoints.\par
-{\pntext\f2\'B7\tab}jQuery to collect data from forms and listen to buttons\par
+{\pntext\f2\'B7\tab}JavaScript to collect data from forms and listen to buttons\par
 {\pntext\f2\'B7\tab}Style pages using Bootstrap 4 and Bootswatch\par
 {\pntext\f2\'B7\tab}Run e2e tests\par
 
