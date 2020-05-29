@@ -77,7 +77,7 @@
 	</fieldset>
 
 	<fieldset>
-		<legend>Optional</legend>
+		<legend>Other</legend>
 		<table>
 			<tr id="attachmentId">
 				<th>Document Attachments</th>
@@ -110,14 +110,24 @@
 	<br>
 	<button id="alterBtnId">Alter</button>
 	<br>
+	<input id="alterAmountId" placeholder="Enter Amount"/>
+	<button id="alterAmountBtnId">Apply Reimbursement Change</button>
+	<br>
+	<div id="alterAmountMsgId">
+		<p>Must Contact Employee upon altering reimbursement amount</p>
+	</div>
+	<div id="exceedingAmountMsgId">
+		<p>The amount goes $X.XX over the limit.</p>
+	</div>
 	<textarea id="exceedingReasonTextId" placeholder="Reason for exceeding reimbursement limit..."></textarea>
+	<button id="exceedingBtnId">Confirm exceeding limit</button>
 	<br>
 	<button id="approvalBtnId">Approve</button>
 	<br>
-	<label for="approvalType"></label>
+	<label for="approvalType">Confirm Approval Type</label>
 	<select name="approvalType" id="approvalTypeId">
-		<options value="ds">Direct Supervisor</options>
-		<options value="dh">Department Head</options>
+		<option value="ds">Direct Supervisor</options>
+		<option value="dh">Department Head</options>
 	</select>
 	<br>
 	<button id="confirmBtnId">Confirm Passing Grade</button>
