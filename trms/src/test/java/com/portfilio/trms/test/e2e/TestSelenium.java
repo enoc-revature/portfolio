@@ -40,20 +40,20 @@ public class TestSelenium {
 		//wd.manage().window().maximize();
 		
 		// 5) Open browser to a URL
-		wd.get("https://www.microsoft.com");
+//		wd.get("https://www.microsoft.com");
 //		wd.get("https://localhost:8080");
-//		wd.get("https://localhost:4200");
+		wd.get("http://localhost:4200");
 //		wd.get("https://www.stackexchange.com");
 //		wd.navigate().to("http://sqa.stackexchange.com");
 		
 		// Assertion
-//		WebElement h1 = wd.findElement(By.id("data-form-headerId"));
-//		String s = h1.getAttribute("innerHTML");
-//		System.out.println("Found h1 element: " + s.equals("Credit Loan Form"));
-
-		WebElement h1 = wd.findElement(By.xpath("/html/head/title"));
+		WebElement h1 = wd.findElement(By.id("data-form-headerId"));
 		String s = h1.getAttribute("innerHTML");
-		System.out.println("Found title element: " + s.equals("Microsoft - Official Home Page"));
+		System.out.println("Found h1 element: " + s.equals("Credit Loan Form"));
+
+//		WebElement h1 = wd.findElement(By.xpath("/html/head/title"));
+//		String s = h1.getAttribute("innerHTML");
+//		System.out.println("Found title element: " + s.equals("Microsoft - Official Home Page"));
 
 		// 6) Close Browser
 		wd.close();

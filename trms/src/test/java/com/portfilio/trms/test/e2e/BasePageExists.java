@@ -44,16 +44,12 @@ public class BasePageExists {
 
 	@Test
 	public void checkIfPageExists() {
-		wd.get("https://www.microsoft.com");
-//		wd.get("https://localhost:8080");
-//		wd.get("https://localhost:4200");
-//		WebElement h1 = wd.findElement(By.id("data-form-headerId"));
-//		String s = h1.getAttribute("innerHTML");
-//		System.out.println("Found h1 element: " + s.equals("Credit Loan Form"));
-
-		WebElement h1 = wd.findElement(By.xpath("/html/head/title"));
+//		wd.get("http://localhost:8080");
+		wd.get("http://localhost:4200"); // This is the wrong app.  I'm just testing for now.
+		WebElement h1 = wd.findElement(By.id("data-form-headerId"));
 		String s = h1.getAttribute("innerHTML");
-		assertTrue(s.equals("Microsoft - Official Home Page"));
+		assertTrue(s.equals("Credit Loan Form"));
+
 	}
 
 }
