@@ -17,7 +17,7 @@
         <br>
         <input id="phoneId" placeholder="Phone Number"/>
         <br>
-        <input type="address" id="addressId" placeholder="Address"/>
+        <input id="addressId" placeholder="Address"/>
 	</fieldset>
         <br>
         <br>
@@ -28,13 +28,16 @@
         <br>
         <input type="time" id="timeId" placeholder=""/>
         <br>
-        <input type="address" id="locationId" placeholder="Address"/>
+        <input id="locationId" placeholder="Address"/>
         <br>
         <textarea id="descriptionId" placeholder="Description..."></textarea>
         <br>
-        <input type="money" id="costId" placeholder="$0.00"/>
+        <input id="costId" placeholder="$0.00"/>
         <br>
+
         <label for="gradingFormat"></label>
+        <!-- TODO: This <select> tag will populate its menu based on what is in
+            the database. -->
         <select id="gradingFormatId" name="gradingFormat">
             <option value="s">Standard</option>
             <option value="pf">Pass/Fail</option>
@@ -42,19 +45,25 @@
         <br>
 
         <label for="passingGrade"></label>
+        <!-- TODO: This <div> tag will be populated with appropriate values
+            Determined by the gradingFormat chosen above.-->
         <div id="passingGradeDivId">
             <select id="passingGradeId" name="passingGrade">
-                <option value="s">Standard</option>
-                <option value="pf">Pass/Fail</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+                <option value="d">D</option>
             </select>
         </div>
         <br>
 
         <label for="type"></label>
+        <!-- TODO: The <select> tag will have its values populated by database values. -->
         <select id="typeId" name="type">
             <option value="cc">College Course</option>
         </select>
         <br>
+
         <textarea id="justificationId" placeholder="Justification for Reimbursement..."></textarea>
         <br>
     </fieldset>
