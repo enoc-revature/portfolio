@@ -2,16 +2,16 @@
 {\*\generator Riched20 10.0.18362}\viewkind4\uc1 
 \pard\keep\keepn\sb240\sl240\slmult1\b\f0\fs40\lang9\par
 Tuition Reimbursement Management System\par
-\fs22 Last Updated: \b0 2020-05-27\par
-Engineers\par
+\fs22 Last Updated: \b0 2020-05-29\par
+\b Engineers\b0\par
 
 \pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\keep\keepn\fi-360\li720\sb240\sl240\slmult1 Enoc Santiago\par
 
-\pard\keep\keepn\sb240\sl240\slmult1 Document Authors\par
+\pard\keep\keepn\sb240\sl240\slmult1\b Document Authors\b0\par
 
 \pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\keep\keepn\fi-360\li720\sb240\sl240\slmult1 Enoc Santiago\par
 
-\pard\keep\keepn\sb240\sl240\slmult1 Document Reviewers\par
+\pard\keep\keepn\sb240\sl240\slmult1\b Document Reviewers\b0\par
 
 \pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\keep\keepn\fi-360\li720\sb240\sl240\slmult1\par
 
@@ -70,10 +70,18 @@ A reimbursement request will have the following status types: \par
 
 \pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 NEW (Not Reviewed)\par
 {\pntext\f2\'B7\tab}NEEDS_MORE_INFO\par
-{\pntext\f2\'B7\tab}AWAITING_DECISION\par
+{\pntext\f2\'B7\tab}ALTERED (BenCo altered the reimbursement amount and is waiting for employee approval.  The employee may cancel requests whose amount has been altered.)\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 CANCELLED (Canceled by employee when reimbursement was adjusted by BenCo)\par
+{\pntext\f2\'B7\tab}CONFIRMED (Employee has confirmed the altered reimbursement amount)\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 AWAITING_DECISION (Approved by BenCo, BenCo cannot deny a request)\par
 {\pntext\f2\'B7\tab}DENIED\par
-{\pntext\f2\'B7\tab}APPROVED\par
-{\pntext\f2\'B7\tab}PENDING_PASSING (Approved but waiting for passing grade or presentation)\par
+{\pntext\f2\'B7\tab}DS_APPROVED (approved by direct supervisor)\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 APPROVED (approved by department head)\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 PENDING_PASSING (Approved but waiting for passing grade or presentation)\par
 {\pntext\f2\'B7\tab}AWARDED\par
 
 \pard\keep\keepn\sb240\sl240\slmult1\b\fs40 Direct Supervisor Approval\par
@@ -98,7 +106,7 @@ A reimbursement request will have the following status types: \par
 
 \pard\keep\keepn\sb40\sl240\slmult1\b\fs24 Business Rules\fs32\par
 
-\pard\sl240\slmult1\b0\fs22 If the BenCo changes the reimbursement amount, the Employee should be notified and given the option to cancel the request.  If the BenCo does not approval in a timely matter, an escalation email should be sent to the BenCo\rquote s direct supervisor.  The BenCo is allowed to award an amount larger than the amount available for the employee.  The BenCo must provide reason for this, and the reimbursement must be marked as exceeding available funds for reporting purposes.\par
+\pard\sl240\slmult1\b0\fs22 If the BenCo changes the reimbursement amount, the Employee should be notified and given the option to cancel the request.  If the BenCo does not approval in a timely matter, an escalation email should be sent to the BenCo\rquote s direct supervisor.  The BenCo is allowed to \b award \b0 an amount \b larger than the amount available \b0 (surpassing $1000 available) for the employee.  The BenCo must provide reason for this, and the reimbursement must be marked as exceeding available funds for reporting purposes.\par
 
 \pard\keep\keepn\sb240\sl240\slmult1\b\fs40 Grade/Presentation Upload\par
 
@@ -109,9 +117,13 @@ A reimbursement request will have the following status types: \par
 \pard\sl240\slmult1\b0\fs22 Only interested parties should be able to access the grades/presentations.  Interested parties include the requestor and approvers.  \par
 \par
 \par
-\par
-\par
-\b\fs40 Sprint Timeline\par
+\b\fs40 Endpoint Mappings (url <-> class)\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1\b0\fs24 /,login\tab\tab Authentication\par
+{\pntext\f2\'B7\tab}\par
+
+\pard\sl240\slmult1\b\fs40\par
+Sprint Timeline\par
 \b0\fs24 Sprint 1)\par
 FROM: 2020-05-26, Tuesday 9am\par
 TO: 2020-05-29, Friday 2pm\par
