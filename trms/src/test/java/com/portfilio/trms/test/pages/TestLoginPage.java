@@ -1,4 +1,4 @@
-package com.portfilio.trms.test.e2e;
+package com.portfilio.trms.test.pages;
 
 import static org.junit.Assert.*;
 
@@ -116,17 +116,5 @@ public class TestLoginPage {
 			fail("<div> element does not exist.");
 		}
 		assertEquals("div", elem.getTagName());
-	}
-
-	@Ignore
-	@Test
-	public void LoginSucceedsToBencoPage() {
-		
-	}
-
-	@Ignore
-	@Test
-	public void LoginFails() {
-		
 	}
 }

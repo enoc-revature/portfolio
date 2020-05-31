@@ -1,4 +1,4 @@
-package com.portfilio.trms.test.e2e;
+package com.portfilio.trms.test.pages;
 
 import static org.junit.Assert.assertTrue;
 
