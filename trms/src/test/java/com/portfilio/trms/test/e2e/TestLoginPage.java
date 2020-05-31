@@ -12,6 +12,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -20,8 +21,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
- * Used to test if page exists.  The class goes to the endpoint and tries to read the title tag.
- * Class variables WebDriver wd.
+ * This test suite checks if its able to reach the endpoint and checks one login.  
+ * Exhaustive tests are performed on the dev version: DevLoginPage.
  * @author enocs
  */
 public class TestLoginPage {
@@ -35,6 +36,7 @@ public class TestLoginPage {
 		try {
 			Paths.get(TEST_DIRECTORY + "base_url.txt");
 			BASE_URL = Files.readAllLines(Paths.get(TEST_DIRECTORY + "base_url.txt")).get(0);
+			loginCredList = Files.readAllLines(Paths.get(TEST_DIRECTORY + "reimbursement_form_test_cases\\allValidNoOptional.txt"));
 		} catch(NoSuchFileException e) {
 			e.getMessage();
 			e.getReason();
@@ -78,21 +80,51 @@ public class TestLoginPage {
 	
 	@Test
 	public void LoginSucceedsToWorkerPage() {
-//		WebElement elem = wd.findElement(By.id("bencoTBodyId"));
+		WebElement elem = null;
+		WebElement usernameField = null;
+		WebElement passwordField = null;
+		WebElement loginBtn = null;
+
 		try {
-			
-		System.out.println(wd.findElement(By.id("bencoTBodyId")));
+			usernameField = wd.findElement(By.id("empId"));
 		} catch (NoSuchElementException e) {
-			fail("tbody element does not exist.");
+			fail("Username <input> element does not exist.");
 		}
-//		assertTrue("Employee Login Success", elem.size()>0);
+
+		try {
+			passwordField = wd.findElement(By.id("pwId"));
+		} catch (NoSuchElementException e) {
+			fail("Password <input> element does not exist.");
+		}
+
+		try {
+			loginBtn = wd.findElement(By.id("submitId"));
+		} catch (NoSuchElementException e) {
+			fail("Login <button> element does not exist.");
+		}
+
+		usernameField.clear();
+		passwordField.clear();
+
+		usernameField.sendKeys(loginCredList.get(0));
+		passwordField.sendKeys(loginCredList.get(1));
+		loginBtn.click();
+
+		try {
+			elem = wd.findElement(By.id("myReimbursementsId"));
+		} catch (NoSuchElementException e) {
+			fail("<div> element does not exist.");
+		}
+		assertEquals("div", elem.getTagName());
 	}
 
+	@Ignore
 	@Test
 	public void LoginSucceedsToBencoPage() {
 		
 	}
 
+	@Ignore
 	@Test
 	public void LoginFails() {
 		
