@@ -21,6 +21,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 public class BasePageExists {
 	WebDriver wd = null;
+	final String BASE_URL = "http://localhost:8080/trms/html/";
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -44,12 +45,9 @@ public class BasePageExists {
 
 	@Test
 	public void checkIfPageExists() {
-//		wd.get("http://localhost:8080");
-		wd.get("http://localhost:4200"); // This is the wrong app.  I'm just testing for now.
-		WebElement h1 = wd.findElement(By.id("data-form-headerId"));
+		wd.get(BASE_URL + "login.html");
+		WebElement h1 = wd.findElement(By.xpath("/html/body/h1"));
 		String s = h1.getAttribute("innerHTML");
-		assertTrue(s.equals("Credit Loan Form"));
-
+		assertTrue(s.equals("Login"));
 	}
-
 }
