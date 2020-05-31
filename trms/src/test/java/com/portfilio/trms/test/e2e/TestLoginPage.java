@@ -3,7 +3,6 @@ package com.portfilio.trms.test.e2e;
 import static org.junit.Assert.assertTrue;
 
 import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -23,21 +22,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
  * Class variables WebDriver wd.
  * @author enocs
  */
-public class BasePageExists {
+public class TestLoginPage {
 	WebDriver wd;
-	static final String TEST_DIRECTORY = System.getenv("TEST_INPUT") + "trms\\";
+	static String TEST_DIRECTORY = System.getenv("TEST_INPUT") + "trms\\";
 	static String BASE_URL;
+//	static File fLogin;
+//	static File fUrl;
+
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		try {
-			Paths.get(TEST_DIRECTORY + "base_url.txt");
-			BASE_URL = Files.readAllLines(Paths.get(TEST_DIRECTORY + "base_url.txt")).get(0);
-		} catch(NoSuchFileException e) {
-			e.getMessage();
-			e.getReason();
-			e.printStackTrace();
-		}
+		List<String> loginCredList = loginCredList = Files.readAllLines(Paths.get(TEST_DIRECTORY + "login.html"));
+//		fLogin = new File(TEST_DIRECTORY + "login.html");
+//		fUrl = new File(TEST_DIRECTORY + "base_url.html");
 		System.setProperty("webdriver.chrome.driver",System.getenv("CHROMEDRIVER_PATH") + "chromedriver.exe");
 	}
 
