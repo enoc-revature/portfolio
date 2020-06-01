@@ -110,7 +110,7 @@ public class TestFormPage {
 			phone = wd.findElement(By.id("phoneId"));
 			empStreet = wd.findElement(By.id("empStreetId"));
 			empState = new Select(wd.findElement(By.id("empStateId")));
-			empZip = wd.findElement(By.id("empZip"));
+			empZip = wd.findElement(By.id("empZipId"));
 			eventDate = wd.findElement(By.id("dateId"));
 			eventTime = wd.findElement(By.id("timeId"));
 			eventStreet = wd.findElement(By.id("eventStreetId"));

@@ -87,9 +87,8 @@ public class TestBencoDetailsPage {
 
 	@Test
 	public void backBtn() {
-		WebElement elem = null;
 		WebElement backBtn = null;
-		TestWorkerPage tbp = new TestWorkerPage();
+		TestBencoPage tbp = new TestBencoPage();
 
 		try {
 			backBtn= wd.findElement(By.id("backBtnId"));
