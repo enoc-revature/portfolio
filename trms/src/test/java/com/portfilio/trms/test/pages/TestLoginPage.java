@@ -26,10 +26,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
  * @author enocs
  */
 public class TestLoginPage {
-	WebDriver wd;
-	static final String TEST_DIRECTORY = System.getenv("TEST_INPUT") + "trms\\";
-	static String BASE_URL;
-	static List<String> loginCredList;
+	protected WebDriver wd;
+	protected static final String TEST_DIRECTORY = System.getenv("TEST_INPUT") + "trms\\";
+	protected static String BASE_URL;
+	protected static List<String> loginCredList;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
