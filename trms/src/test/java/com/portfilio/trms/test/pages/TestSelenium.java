@@ -1,4 +1,4 @@
-package com.portfilio.trms.test.e2e;
+package com.portfilio.trms.test.pages;
 
 import java.util.concurrent.TimeUnit;
 
