@@ -1,6 +1,7 @@
-package com.portfilio.trms.test.pages;
+package com.portfolio.trms.test.pages;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.nio.file.Files;
@@ -21,7 +22,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class TestBencoDetailsPage {
+public class TestWorkerPage {
 	protected WebDriver wd;
 	protected static final String TEST_DIRECTORY = System.getenv("TEST_INPUT") + "trms\\";
 	protected static String BASE_URL;
@@ -59,7 +60,7 @@ public class TestBencoDetailsPage {
 	public void setUp() throws Exception {
 		wd = new ChromeDriver();
 		wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		wd.get(BASE_URL + "bencodetails.html");
+		wd.get(BASE_URL + "benco.html");
 	}
 
 	@After
@@ -68,8 +69,29 @@ public class TestBencoDetailsPage {
 	}
 
 	@Test
-	public void workerDetailsPageExists() {
+	public void workerPageExists() {
+		WebElement h1 = wd.findElement(By.xpath("/html/body/h1"));
+		String s = h1.getAttribute("innerHTML");
+		assertTrue("Login Page Exists" ,s.equals("Login"));
+	}
+	
+	@Ignore
+	@Test
+	public void workerSessionExists() {
+	}
+	
+	@Test
+	public void workerRowClick() {
 		WebElement elem = null;
+		WebElement rowClick = null;
+
+		try {
+			rowClick = wd.findElement(By.id("submitId"));
+		} catch (NoSuchElementException e) {
+			fail("Row <tr> element does not exist.");
+		}
+
+		rowClick.click();
 
 		try {
 			elem = wd.findElement(By.xpath("/html/body/h1"));
@@ -77,34 +99,5 @@ public class TestBencoDetailsPage {
 			fail("<h1> element does not exist.");
 		}
 		assertEquals("Reimbursement Details", elem.getAttribute("innerHTML"));
-	}
-	
-	@Ignore
-	@Test
-	public void userInInSession() {
-		
-	}
-
-	@Test
-	public void backBtn() {
-		WebElement backBtn = null;
-		TestBencoPage tbp = new TestBencoPage();
-
-		try {
-			backBtn= wd.findElement(By.id("backBtnId"));
-		} catch (NoSuchElementException e) {
-			fail("Back <button> element does not exist.");
-		}
-
-		backBtn.click();
-		
-		tbp.bencoPageExists();
-
-//		try {
-//			elem = wd.findElement(By.xpath("/html/body/h1"));
-//		} catch (NoSuchElementException e) {
-//			fail("<h1> element does not exist.");
-//		}
-//		assertEquals("Reimbursement Details", elem.getAttribute("innerHTML"));
 	}
 }
