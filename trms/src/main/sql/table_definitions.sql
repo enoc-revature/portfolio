@@ -31,7 +31,7 @@ CREATE TABLE benco (
 -- Enumeration Tables
 DROP TABLE IF EXISTS status;
 CREATE TABLE status (
-    status_type VARCHAR(64) PRIMARY KEY,
+    id INT PRIMARY KEY,
     status_name VARCHAR(64)
 );
 
