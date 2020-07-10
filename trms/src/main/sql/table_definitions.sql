@@ -52,7 +52,7 @@ CREATE TABLE grading_format (
 DROP TABLE IF EXISTS grades;
 CREATE TABLE grades (
     id INT PRIMARY KEY,
-    grading_format VARCHAR(64) UNIQUE,
+    grading_format VARCHAR(64),
     grade VARCHAR(8),
     FOREIGN KEY (grading_format) REFERENCES grading_format(grading_format)
 );
@@ -79,7 +79,7 @@ CREATE TABLE reimbursement (
     final_grade VARCHAR(8),
     type_of_event VARCHAR(8),
     justification TEXT,
-    status_id VARCHAR(64),
+    status_id INT,
     award_amount DECIMAL(6,2),
 
     -- Optional form entries
@@ -90,7 +90,7 @@ CREATE TABLE reimbursement (
 
     FOREIGN KEY (employee_id) REFERENCES employee(username),
     FOREIGN KEY (benco_id) REFERENCES benco(username),
-    FOREIGN KEY (status_id) REFERENCES status(status_type),
+    FOREIGN KEY (status_id) REFERENCES status(id),
     FOREIGN KEY (type_of_event) REFERENCES event(id),
     FOREIGN KEY (grading_format) REFERENCES grading_format(grading_format)
 );
