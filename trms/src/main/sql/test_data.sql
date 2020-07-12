@@ -4,7 +4,7 @@ SET search_path TO test;
 
 
 -- Enumeration Data
-TRUNCATE TABLE status;
+DELETE FROM status;
 INSERT INTO status
 VALUES (1, 'NEW'), -- Not Reviewed
        (2, 'NEEDS_MORE_INFO'),
@@ -18,7 +18,7 @@ VALUES (1, 'NEW'), -- Not Reviewed
        (10, 'PENDING_PASSING'), -- Approved but waiting for passing grade or presentation
        (11, 'AWARDED');
 
-TRUNCATE TABLE event;
+DELETE FROM event;
 INSERT INTO event
 VALUES (1, 'University Courses', 0.80),
        (2, 'Seminars', 0.60),
@@ -27,49 +27,48 @@ VALUES (1, 'University Courses', 0.80),
        (5, 'Technical Training', 0.90),
        (6, 'Other', 0.30);
 
-
-TRUNCATE TABLE grading_format;
+DELETE FROM grading_format;
 INSERT INTO grading_format
 VALUES (1, 'Standard', 'C'),
        (2, 'Pass/Fail', 'Pass');
 
-TRUNCATE TABLE grades;
+DELETE FROM grades;
 INSERT INTO grades
-VALUES (1, 'Standard', 'A'),
-       (2, 'Standard', 'B'),
-       (3, 'Standard', 'C'),
-       (4, 'Standard', 'D'),
-       (5, 'Standard', 'F'),
-       (6, 'Pass/Fail', 'Pass'),
-       (7, 'Pass/Fail', 'Fail');
+VALUES (1, 1, 'A'),
+       (2, 1, 'B'),
+       (3, 1, 'C'),
+       (4, 1, 'D'),
+       (5, 1, 'F'),
+       (6, 2, 'Pass'),
+       (7, 2, 'Fail');
+
 
 
 -- User TABLES
-TRUNCATE TABLE employee;
+DELETE FROM employee;
 INSERT INTO employee
 VALUES  ('TEST_USERNAME', 'TEST_PASSWORD', 'TEST_FIRST', 'TEST_LAST','123 PLACE', '123-456-7890','TEST@email.com'),
         ('TEST_USERNAME2', 'TEST_PASSWORD2', 'TEST_FIRST2', 'TEST_LAST2','999 PLACE', '000-000-0000','TEST2@email.com'), 
         ('TEST_SUPERVISOR', 'TEST_SUPERVISOR', 'TEST_SUPER1', 'TEST_SUPER2','555 PLACE', '999-999-9999','SUPERVISOR@email.com'); 
 
-TRUNCATE TABLE benco;
+DELETE FROM benco;
 INSERT INTO benco
 VALUES  ('BENCO_USERNAME', 'BENCO_PASSWORD', 'BENCO@email.com'),
         ('BENCO_USERNAME2', 'BENCO_PASSWORD2', 'BENCO2@email.com');
 
 
-
 -- One To Many
-TRUNCATE TABLE reimbursement;
+DELETE FROM reimbursement;
 INSERT INTO reimbursement (
     employee_id, supervisor_id, benco_id, description,
-    location, start_date, start_time, cost, grading_format,
+    location, start_date, start_time, cost, grading_format_id,
     passing_grade, final_grade, type_of_event, justification,
     status_id, award_amount)
-VALUES  ('TEST_USERNAME', 'TEST_SUPERVISOR', 'BENCO_USERNAME', 'TEST_DESCRIPTION',
-            '555 TEST EVENT STREET', '2020-08-01', '09:00:00', 300.00, 1,
-            'C', null, 4, 'TEST_JUSTIFICATIONI',
-            1,300.00),
-        ('TEST_USERNAME', 'TEST_SUPERVISOR', 'BENCO_USERNAME', 'TEST_DESCRIPTION',
-            '555 TEST EVENT STREET', '2020-08-01', '09:00:00', 300.00, 1,
-            'C', null, 4, 'TEST_JUSTIFICATIONI',
+VALUES  ('TEST_USERNAME', 'TEST_SUPERVISOR', 'BENCO_USERNAME', 'TEST_DESCRIPTION1',
+            '555 TEST EVENT STREET', '2020-08-01', '09:00:00', 250.00, 1,
+            'C', null, 4, 'TEST_JUSTIFICATION1',
+            1,250.00),
+        ('TEST_USERNAME', 'TEST_SUPERVISOR', 'BENCO_USERNAME', 'TEST_DESCRIPTION2',
+            '555 TEST EVENT STREET', '2020-08-01', '11:00:00', 300.00, 1,
+            'C', null, 4, 'TEST_JUSTIFICATION2',
             1,300.00);

@@ -45,16 +45,17 @@ CREATE TABLE event (
 DROP TABLE IF EXISTS grading_format;
 CREATE TABLE grading_format (
     id INT PRIMARY KEY,
-    grading_format VARCHAR(64) UNIQUE,
+    grading_format VARCHAR(64),
     default_passing_grade VARCHAR(8)
 );
 
 DROP TABLE IF EXISTS grades;
 CREATE TABLE grades (
     id INT PRIMARY KEY,
-    grading_format VARCHAR(64),
+    grading_format_id INT,
     grade VARCHAR(8),
-    FOREIGN KEY (grading_format) REFERENCES grading_format(grading_format)
+    FOREIGN KEY (grading_format_id) REFERENCES grading_format(id)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -74,7 +75,7 @@ CREATE TABLE reimbursement (
     start_time TIME,
 
     cost DECIMAL(10,2),
-    grading_format VARCHAR(64),
+    grading_format_id INT,
     passing_grade VARCHAR(8),
     final_grade VARCHAR(8),
     type_of_event VARCHAR(8),
@@ -92,6 +93,6 @@ CREATE TABLE reimbursement (
     FOREIGN KEY (benco_id) REFERENCES benco(username),
     FOREIGN KEY (status_id) REFERENCES status(id),
     FOREIGN KEY (type_of_event) REFERENCES event(id),
-    FOREIGN KEY (grading_format) REFERENCES grading_format(grading_format)
+    FOREIGN KEY (grading_format_id) REFERENCES grading_format(id)
 );
 
