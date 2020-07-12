@@ -1,8 +1,6 @@
-package com.portfilio.trms.test.pages;
+package com.portfolio.trms.test.pages;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
@@ -22,7 +20,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class TestBencoPage {
+/**
+ * This test suite checks if its able to reach the endpoint and checks one login.  
+ * Exhaustive tests are performed on the dev version: DevLoginPage.
+ * @author enocs
+ */
+public class TestLoginPage {
 	protected WebDriver wd;
 	protected static final String TEST_DIRECTORY = System.getenv("TEST_INPUT") + "trms\\";
 	protected static String BASE_URL;
@@ -60,7 +63,7 @@ public class TestBencoPage {
 	public void setUp() throws Exception {
 		wd = new ChromeDriver();
 		wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		wd.get(BASE_URL + "benco.html");
+		wd.get(BASE_URL + "login.html");
 	}
 
 	@After
@@ -69,35 +72,49 @@ public class TestBencoPage {
 	}
 
 	@Test
-	public void bencoPageExists() {
+	public void checkIfPageExists() {
 		WebElement h1 = wd.findElement(By.xpath("/html/body/h1"));
 		String s = h1.getAttribute("innerHTML");
-		assertTrue("Benco Page Exists" ,s.equals("Reimbursement Requests"));
-	}
-	
-	@Ignore
-	@Test
-	public void bencoSessionExists() {
+		assertTrue("Login Page Exists" ,s.equals("Login"));
 	}
 	
 	@Test
-	public void bencoRowClick() {
+	public void LoginSucceedsToWorkerPage() {
 		WebElement elem = null;
-		WebElement rowClick = null;
+		WebElement usernameField = null;
+		WebElement passwordField = null;
+		WebElement loginBtn = null;
 
 		try {
-			rowClick = wd.findElement(By.id("submitId"));
+			usernameField = wd.findElement(By.id("empId"));
 		} catch (NoSuchElementException e) {
-			fail("Row <tr> element does not exist.");
+			fail("Username <input> element does not exist.");
 		}
-
-		rowClick.click();
 
 		try {
-			elem = wd.findElement(By.xpath("/html/body/h1"));
+			passwordField = wd.findElement(By.id("pwId"));
 		} catch (NoSuchElementException e) {
-			fail("<h1> element does not exist.");
+			fail("Password <input> element does not exist.");
 		}
-		assertEquals("Reimbursement Details", elem.getAttribute("innerHTML"));
+
+		try {
+			loginBtn = wd.findElement(By.id("submitId"));
+		} catch (NoSuchElementException e) {
+			fail("Login <button> element does not exist.");
+		}
+
+		usernameField.clear();
+		passwordField.clear();
+
+		usernameField.sendKeys(loginCredList.get(0));
+		passwordField.sendKeys(loginCredList.get(1));
+		loginBtn.click();
+
+		try {
+			elem = wd.findElement(By.id("myReimbursementsId"));
+		} catch (NoSuchElementException e) {
+			fail("<div> element does not exist.");
+		}
+		assertEquals("div", elem.getTagName());
 	}
 }
