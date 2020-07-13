@@ -49,7 +49,7 @@ public class TestBencoPage {
 			e.printStackTrace();
 		}
 
-		System.setProperty("webdriver.chrome.driver",System.getenv("CHROMEDRIVER_PATH") + "chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",System.getenv("CHROME_DRIVER"));
 	}
 
 	@AfterClass
@@ -70,6 +70,7 @@ public class TestBencoPage {
 
 	@Test
 	public void bencoPageExists() {
+		System.out.println(System.getenv("CHROME_DRIVER"));
 		WebElement h1 = wd.findElement(By.xpath("/html/body/h1"));
 		String s = h1.getAttribute("innerHTML");
 		assertTrue("Benco Page Exists" ,s.equals("Reimbursement Requests"));

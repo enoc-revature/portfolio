@@ -48,7 +48,7 @@ public class TestWorkerDetailsPage {
 			e.printStackTrace();
 		}
 
-		System.setProperty("webdriver.chrome.driver",System.getenv("CHROMEDRIVER"));
+		System.setProperty("webdriver.chrome.driver",System.getenv("CHROME_DRIVER"));
 	}
 
 	@AfterClass

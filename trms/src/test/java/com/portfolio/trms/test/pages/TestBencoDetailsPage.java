@@ -48,7 +48,7 @@ public class TestBencoDetailsPage {
 			e.printStackTrace();
 		}
 
-		System.setProperty("webdriver.chrome.driver",System.getenv("CHROMEDRIVER"));
+		System.setProperty("webdriver.chrome.driver",System.getenv("CHROME_DRIVER"));
 	}
 
 	@AfterClass
