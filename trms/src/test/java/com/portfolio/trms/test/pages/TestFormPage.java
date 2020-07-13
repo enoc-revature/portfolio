@@ -23,7 +23,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class TestFormPage {
 	protected WebDriver wd;
-	protected static final String TEST_DIRECTORY = System.getenv("TEST_INPUT") + "trms\\";
+	protected static final String TEST_DIRECTORY = System.getenv("TEST_INPUT") + "trms/";
 	protected static String BASE_URL;
 	protected static List<String> loginCredList;
 	protected static List<String> formDataList;
@@ -33,7 +33,7 @@ public class TestFormPage {
 		try {
 			Paths.get(TEST_DIRECTORY + "base_url.txt");
 			BASE_URL = Files.readAllLines(Paths.get(TEST_DIRECTORY + "base_url.txt")).get(0);
-			formDataList = Files.readAllLines(Paths.get(TEST_DIRECTORY + "reimbursement_form_test_cases\\allValidNoOptional.txt"));
+			formDataList = Files.readAllLines(Paths.get(TEST_DIRECTORY + "reimbursement_form_test_cases/allValidNoOptional.txt"));
 		} catch(NoSuchFileException e) {
 			e.getMessage();
 			e.getReason();
@@ -49,7 +49,7 @@ public class TestFormPage {
 			e.printStackTrace();
 		}
 
-		System.setProperty("webdriver.chrome.driver",System.getenv("CHROMEDRIVER_PATH") + "chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",System.getenv("CHROME_DRIVER"));
 	}
 
 	@AfterClass

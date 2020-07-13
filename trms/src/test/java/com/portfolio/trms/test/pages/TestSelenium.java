@@ -19,7 +19,7 @@ public class TestSelenium {
 	public static void main(String[] args) {
 		
 		// 1) Set up the driver executable
-		System.setProperty("webdriver.chrome.driver",System.getenv("CHROMEDRIVER"));
+		System.setProperty("webdriver.chrome.driver",System.getenv("CHROME_DRIVER"));
 
 		/* 2) Initialize your chromedriver
 		 * Available Drivers:
