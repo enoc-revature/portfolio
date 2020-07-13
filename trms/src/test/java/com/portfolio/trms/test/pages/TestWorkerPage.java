@@ -49,7 +49,7 @@ public class TestWorkerPage {
 			e.printStackTrace();
 		}
 
-		System.setProperty("webdriver.chrome.driver",System.getenv("CHROMEDRIVER_PATH") + "chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",System.getenv("CHROMEDRIVER"));
 	}
 
 	@AfterClass
