@@ -25,7 +25,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 public class BasePageExists {
 	WebDriver wd;
-	static final String TEST_DIRECTORY = System.getenv("TEST_INPUT") + "trms\\";
+	static final String TEST_DIRECTORY = System.getenv("TEST_INPUT") + "trms/";
 	static String BASE_URL;
 
 	@BeforeClass
@@ -38,7 +38,7 @@ public class BasePageExists {
 			e.getReason();
 			e.printStackTrace();
 		}
-		System.setProperty("webdriver.chrome.driver",System.getenv("CHROMEDRIVER_PATH") + "chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",System.getenv("CHROMEDRIVER"));
 	}
 
 	@AfterClass

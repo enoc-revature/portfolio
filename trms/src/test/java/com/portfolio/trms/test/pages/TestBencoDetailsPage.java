@@ -23,7 +23,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestBencoDetailsPage {
 	protected WebDriver wd;
-	protected static final String TEST_DIRECTORY = System.getenv("TEST_INPUT") + "trms\\";
+	protected static final String TEST_DIRECTORY = System.getenv("TEST_INPUT") + "trms/";
 	protected static String BASE_URL;
 	protected static List<String> loginCredList;
 
@@ -32,7 +32,7 @@ public class TestBencoDetailsPage {
 		try {
 			Paths.get(TEST_DIRECTORY + "base_url.txt");
 			BASE_URL = Files.readAllLines(Paths.get(TEST_DIRECTORY + "base_url.txt")).get(0);
-			loginCredList = Files.readAllLines(Paths.get(TEST_DIRECTORY + "reimbursement_form_test_cases\\allValidNoOptional.txt"));
+			loginCredList = Files.readAllLines(Paths.get(TEST_DIRECTORY + "reimbursement_form_test_cases/allValidNoOptional.txt"));
 		} catch(NoSuchFileException e) {
 			e.getMessage();
 			e.getReason();
@@ -48,7 +48,7 @@ public class TestBencoDetailsPage {
 			e.printStackTrace();
 		}
 
-		System.setProperty("webdriver.chrome.driver",System.getenv("CHROMEDRIVER_PATH") + "chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",System.getenv("CHROMEDRIVER"));
 	}
 
 	@AfterClass
