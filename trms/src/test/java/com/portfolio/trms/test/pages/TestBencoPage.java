@@ -21,6 +21,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class TestBencoPage {
 	protected WebDriver wd;
@@ -58,7 +59,9 @@ public class TestBencoPage {
 
 	@Before
 	public void setUp() throws Exception {
-		wd = new ChromeDriver();
+		ChromeOptions opt = new ChromeOptions();
+		opt.addArguments("headless");
+		wd = new ChromeDriver(opt);
 		wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		wd.get(BASE_URL + "benco.html");
 	}
