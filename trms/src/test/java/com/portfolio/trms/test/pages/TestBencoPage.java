@@ -60,7 +60,8 @@ public class TestBencoPage {
 	@Before
 	public void setUp() throws Exception {
 		ChromeOptions opt = new ChromeOptions();
-		opt.addArguments("headless");
+        opt.addArguments("--headless");
+        opt.addArguments("--no-sandbox");
 		wd = new ChromeDriver(opt);
 		wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		wd.get(BASE_URL + "benco.html");
