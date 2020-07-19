@@ -21,7 +21,6 @@ CREATE TABLE benco (
     password VARCHAR(64) NOT NULL,
     first_name VARCHAR(64),
     last_name VARCHAR(64),
-    address VARCHAR(64),
     email VARCHAR(64)
 
 );

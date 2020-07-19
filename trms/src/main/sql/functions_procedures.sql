@@ -2,7 +2,7 @@
 SET search_path TO test;
 
 
--- Return user info if passwords MATCH
+-- Return user info if passwords match
 DROP FUNCTION login_auth;
 CREATE OR REPLACE FUNCTION login_auth(un VARCHAR, pw VARCHAR)
 RETURNS TABLE (
@@ -12,8 +12,8 @@ RETURNS TABLE (
     address VARCHAR,
     phone VARCHAR,
     email VARCHAR
-) AS
-$$
+)
+AS $$
 BEGIN
     RETURN QUERY
     SELECT e.username, e.first_name, e.last_name,
@@ -29,7 +29,28 @@ SELECT * FROM login_auth('TEST_USERNAME', 'TEST_PASSWORD');
 
 
 
--- Return user info if passwords MATCH
+-- Return BenCo info if passwords match
+DROP FUNCTION benco_auth;
+CREATE OR REPLACE FUNCTION benco_auth(ben VARCHAR, pw VARCHAR)
+RETURNS TABLE (
+    username VARCHAR,
+    first_name VARCHAR,
+    last_name VARCHAR,
+    email VARCHAR
+)
+AS $$
+BEGIN
+    RETURN QUERY
+    SELECT b.username, b.first_name,
+           b.last_name, b.email
+        FROM benco b
+    WHERE b.username=ben
+        AND b.password=pw;
+END
+$$
+LANGUAGE plpgsql;
+select * from benco;
+SELECT * FROM benco_auth('BENCO_USERNAME', 'BENCO_PASSWORD');
 
 
 
@@ -45,7 +66,7 @@ SELECT * FROM login_auth('TEST_USERNAME', 'TEST_PASSWORD');
 
 
 
--- Update reimbursement status
+-- An array of updates to reimbursement status
 
 
 

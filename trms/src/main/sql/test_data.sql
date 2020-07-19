@@ -53,8 +53,8 @@ VALUES  ('TEST_USERNAME', 'TEST_PASSWORD', 'TEST_FIRST', 'TEST_LAST','123 PLACE'
 
 DELETE FROM benco;
 INSERT INTO benco
-VALUES  ('BENCO_USERNAME', 'BENCO_PASSWORD', 'BENCO@email.com'),
-        ('BENCO_USERNAME2', 'BENCO_PASSWORD2', 'BENCO2@email.com');
+VALUES  ('BENCO_USERNAME', 'BENCO_PASSWORD', 'Ben', 'Co', 'BENCO@email.com'),
+        ('BENCO_USERNAME2', 'BENCO_PASSWORD2', 'Benette', 'Cola', 'BENCO2@email.com');
 
 
 -- One To Many
