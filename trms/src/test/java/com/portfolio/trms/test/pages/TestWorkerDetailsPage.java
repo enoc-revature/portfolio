@@ -91,7 +91,6 @@ public class TestWorkerDetailsPage {
 
 	@Test
 	public void backBtn() {
-		WebElement elem = null;
 		WebElement backBtn = null;
 		TestWorkerPage twp = new TestWorkerPage();
 
@@ -102,14 +101,6 @@ public class TestWorkerDetailsPage {
 		}
 
 		backBtn.click();
-		
 		twp.workerPageExists();
-
-//		try {
-//			elem = wd.findElement(By.xpath("/html/body/h1"));
-//		} catch (NoSuchElementException e) {
-//			fail("<h1> element does not exist.");
-//		}
-//		assertEquals("Reimbursement Details", elem.getAttribute("innerHTML"));
 	}
 }

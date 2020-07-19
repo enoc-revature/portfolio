@@ -74,9 +74,17 @@ public class TestWorkerPage {
 
 	@Test
 	public void workerPageExists() {
-		WebElement h1 = wd.findElement(By.xpath("/html/body/h1"));
-		String s = h1.getAttribute("innerHTML");
-		assertTrue("Login Page Exists" ,s.equals("Login"));
+		WebElement h1 = null;
+		String s = null;
+
+		try {
+			h1 = wd.findElement(By.xpath("/html/body/h1"));
+			s = h1.getAttribute("innerHTML");
+		} catch (NoSuchElementException | NullPointerException e) {
+			fail("Back button did not land on BencoPage");
+		}
+
+		assertTrue("Worker Page Exists" ,s.equals("Login"));
 	}
 	
 	@Ignore

@@ -74,9 +74,16 @@ public class TestBencoPage {
 
 	@Test
 	public void bencoPageExists() {
-		System.out.println(System.getenv("CHROME_DRIVER"));
-		WebElement h1 = wd.findElement(By.xpath("/html/body/h1"));
-		String s = h1.getAttribute("innerHTML");
+		WebElement h1 = null;
+		String s = null;
+
+		try {
+			h1 = wd.findElement(By.xpath("/html/body/h1"));
+			s = h1.getAttribute("innerHTML");
+		} catch (NoSuchElementException | NullPointerException e) {
+			fail("Back button did not land on BencoPage");
+		}
+
 		assertTrue("Benco Page Exists" ,s.equals("Reimbursement Requests"));
 	}
 	
