@@ -85,7 +85,7 @@ public class TestWorkerDetailsPage {
 	
 	@Ignore
 	@Test
-	public void userInInSession() {
+	public void userInSession() {
 		
 	}
 

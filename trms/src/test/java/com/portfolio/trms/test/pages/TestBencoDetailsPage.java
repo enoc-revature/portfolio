@@ -85,7 +85,7 @@ public class TestBencoDetailsPage {
 	
 	@Ignore
 	@Test
-	public void userInInSession() {
+	public void userInSession() {
 		
 	}
 
