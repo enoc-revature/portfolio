@@ -20,6 +20,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class TestBencoDetailsPage {
 	protected WebDriver wd;
@@ -57,7 +58,10 @@ public class TestBencoDetailsPage {
 
 	@Before
 	public void setUp() throws Exception {
-		wd = new ChromeDriver();
+		ChromeOptions opt = new ChromeOptions();
+        opt.addArguments("--headless");
+        opt.addArguments("--no-sandbox");
+		wd = new ChromeDriver(opt);
 		wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		wd.get(BASE_URL + "bencodetails.html");
 	}
@@ -81,7 +85,7 @@ public class TestBencoDetailsPage {
 	
 	@Ignore
 	@Test
-	public void userInInSession() {
+	public void userInSession() {
 		
 	}
 
@@ -97,14 +101,6 @@ public class TestBencoDetailsPage {
 		}
 
 		backBtn.click();
-		
 		tbp.bencoPageExists();
-
-//		try {
-//			elem = wd.findElement(By.xpath("/html/body/h1"));
-//		} catch (NoSuchElementException e) {
-//			fail("<h1> element does not exist.");
-//		}
-//		assertEquals("Reimbursement Details", elem.getAttribute("innerHTML"));
 	}
 }

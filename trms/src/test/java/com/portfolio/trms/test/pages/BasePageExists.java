@@ -5,7 +5,6 @@ import static org.junit.Assert.assertTrue;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
@@ -17,6 +16,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 /**
  * Used to test if page exists.  The class goes to the endpoint and tries to read the title tag.
@@ -47,7 +47,10 @@ public class BasePageExists {
 
 	@Before
 	public void setUp() throws Exception {
-		wd = new ChromeDriver();
+		ChromeOptions opt = new ChromeOptions();
+        opt.addArguments("--headless");
+        opt.addArguments("--no-sandbox");
+		wd = new ChromeDriver(opt);
 		wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 

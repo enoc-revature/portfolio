@@ -21,6 +21,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class TestWorkerPage {
 	protected WebDriver wd;
@@ -58,7 +59,10 @@ public class TestWorkerPage {
 
 	@Before
 	public void setUp() throws Exception {
-		wd = new ChromeDriver();
+		ChromeOptions opt = new ChromeOptions();
+        opt.addArguments("--headless");
+        opt.addArguments("--no-sandbox");
+		wd = new ChromeDriver(opt);
 		wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		wd.get(BASE_URL + "benco.html");
 	}
@@ -70,9 +74,17 @@ public class TestWorkerPage {
 
 	@Test
 	public void workerPageExists() {
-		WebElement h1 = wd.findElement(By.xpath("/html/body/h1"));
-		String s = h1.getAttribute("innerHTML");
-		assertTrue("Login Page Exists" ,s.equals("Login"));
+		WebElement h1 = null;
+		String s = null;
+
+		try {
+			h1 = wd.findElement(By.xpath("/html/body/h1"));
+			s = h1.getAttribute("innerHTML");
+		} catch (NoSuchElementException | NullPointerException e) {
+			fail("Back button did not land on BencoPage");
+		}
+
+		assertTrue("Worker Page Exists" ,s.equals("Login"));
 	}
 	
 	@Ignore

@@ -1,6 +1,8 @@
 package com.portfolio.trms.test.pages;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
@@ -12,13 +14,13 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 /**
  * This test suite checks if its able to reach the endpoint and checks one login.  
@@ -61,7 +63,10 @@ public class TestLoginPage {
 
 	@Before
 	public void setUp() throws Exception {
-		wd = new ChromeDriver();
+		ChromeOptions opt = new ChromeOptions();
+        opt.addArguments("--headless");
+        opt.addArguments("--no-sandbox");
+		wd = new ChromeDriver(opt);
 		wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		wd.get(BASE_URL + "login.html");
 	}
