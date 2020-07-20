@@ -24,8 +24,7 @@ BEGIN
 END
 $$
 LANGUAGE plpgsql;
-
-SELECT * FROM login_auth('TEST_USERNAME', 'TEST_PASSWORD');
+-- SELECT * FROM login_auth('TEST_USERNAME', 'TEST_PASSWORD');
 
 
 
@@ -49,24 +48,63 @@ BEGIN
 END
 $$
 LANGUAGE plpgsql;
-select * from benco;
-SELECT * FROM benco_auth('BENCO_USERNAME', 'BENCO_PASSWORD');
+-- SELECT * FROM benco_auth('BENCO_USERNAME', 'BENCO_PASSWORD');
 
 
 
--- Get reimbursement for user/supervisor
+-- Get reimbursement for user/supervisor.  This populates the user's page
+DROP FUNCTION user_reim;
+CREATE OR REPLACE FUNCTION user_reim(un VARCHAR)
+RETURNS TABLE (
+    reimbursement_id INT,
+    event VARCHAR,
+    event_date DATE,
+    status_of_request VARCHAR
+)
+AS $$
+BEGIN
+    RETURN QUERY
+    SELECT r.id, description, start_date, status_name
+    FROM reimbursement r
+    JOIN status s
+    ON status_id=s.id
+    WHERE employee_id=un;
+END
+$$
+LANGUAGE plpgsql;
+-- SELECT * FROM user_reim('TEST_USERNAME');
 
 
 
 -- Get reimbursement to populate BenCo page
-
-
-
--- Create a new reimbursement request
+DROP FUNCTION benco_reim;
+CREATE OR REPLACE FUNCTION benco_reim()
+RETURNS TABLE (
+    reimbursement_id INT,
+    full_name VARCHAR,
+    event_name VARCHAR,
+    event_date DATE,
+    status_of_request VARCHAR
+)
+AS $$
+BEGIN
+    RETURN QUERY
+    SELECT r.id, CAST(CONCAT(first_name, ' ', last_name) AS VARCHAR) full_name, description, start_date, status_name
+    -- SELECT r.id, first_name full_name, description, start_date, status_name
+    FROM reimbursement r
+    JOIN status s
+    ON status_id=s.id
+    JOIN employee e
+    ON employee_id=username;
+END
+$$
+LANGUAGE plpgsql;
+-- SELECT * FROM benco_reim();
 
 
 
 -- An array of updates to reimbursement status
+
 
 
 
