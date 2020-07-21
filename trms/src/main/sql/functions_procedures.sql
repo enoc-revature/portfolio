@@ -103,7 +103,31 @@ LANGUAGE plpgsql;
 
 
 
--- An array of updates to reimbursement status
+-- Populate reimbursement details for employee
+DROP FUNCTION fill_emp_details;
+CREATE FUNCTION fill_emp_details(reim_id INT)
+RETURNS TABLE (
+
+)
+AS $$
+BEGIN
+
+END
+$$
+LANGUAGE plpgsql;
+
+
+
+
+-- TODO: Populate reimbursement details for employee
+
+
+
+-- TODO: Fill dropdown menu
+
+
+
+-- TODO: An array of updates to reimbursement status
 
 
 
