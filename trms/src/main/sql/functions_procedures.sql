@@ -103,7 +103,7 @@ LANGUAGE plpgsql;
 
 
 
--- Populate reimbursement details for employee
+-- TODO: Populate reimbursement details for employee
 DROP FUNCTION fill_emp_details;
 CREATE FUNCTION fill_emp_details(reim_id INT)
 RETURNS TABLE (
@@ -116,20 +116,68 @@ END
 $$
 LANGUAGE plpgsql;
 
+select * from event;
+
+-- Event Type
+DROP FUNCTION get_events;
+CREATE FUNCTION get_events()
+RETURNS TABLE (
+    name VARCHAR(64),
+    coverage DECIMAL(6,2)
+)
+AS $$
+BEGIN
+    RETURN QUERY
+    SELECT e.name, e.coverage FROM event e;
+END
+$$
+LANGUAGE plpgsql;
+-- SELECT * FROM get_events();
+
+-- TODO: Populate reimbursement details for benco
 
 
+-- Grading Format
+SELECT * FROM grading_format;
+DROP FUNCTION get_grading_format;
+CREATE FUNCTION get_grading_format()
+RETURNS TABLE (
+    grading_format VARCHAR(64),
+    default_passing_grade VARCHAR(8)
+)
+AS $$
+BEGIN
+    RETURN QUERY
+    SELECT g.grading_format, g.default_passing_grade FROM grading_format g;
+END
+$$
+LANGUAGE plpgsql;
+-- SELECT * FROM get_grading_format();
 
--- TODO: Populate reimbursement details for employee
 
-
-
--- TODO: Fill dropdown menu
+-- Passing Grade
+SELECT * FROM grades;
+SELECT * FROM grading_format;
+DROP FUNCTION get_grades;
+CREATE FUNCTION get_grades(format VARCHAR)
+RETURNS TABLE (
+    grade VARCHAR(8)
+)
+AS $$
+BEGIN
+    RETURN QUERY
+    SELECT g.grade FROM grades g
+    WHERE grading_format_id = (
+        SELECT distinct(id) FROM grading_format
+        WHERE grading_format=format
+    );
+END
+$$
+LANGUAGE plpgsql;
+-- SELECT * FROM get_grades('Standard');
 
 
 
 -- TODO: An array of updates to reimbursement status
-
-
-
 
 
