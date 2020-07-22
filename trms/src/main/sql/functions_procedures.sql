@@ -103,20 +103,58 @@ LANGUAGE plpgsql;
 
 
 
--- TODO: Populate reimbursement details for employee
+-- //TODO: Populate reimbursement details for employee
 DROP FUNCTION fill_emp_details;
 CREATE FUNCTION fill_emp_details(reim_id INT)
 RETURNS TABLE (
+    -- Personal Info
+    full_name VARCHAR(64),
+    employee_id VARCHAR(64),
+    phone_number VARCHAR(64),
+    email VARCHAR(64),
+    address VARCHAR(64),
 
+    -- Event Info
+    start_date DATE,
+    start_time TIME,
+    event_address VARCHAR(64),
+    event_description VARCHAR(64),
+    cost DECIMAL(10,2),
+    grading_format VARCHAR(64),
+    passing_grade VARCHAR(8),
+    type_of_event VARCHAR(8),
+    justification TEXT,
+
+    -- Other
+    final_grade VARCHAR(8),
+    event_attachment VARCHAR(256),
+    approval_attachment VARCHAR(256),
+    preapproval_type VARCHAR(64),
+    work_missed TEXT,
+    projected_reimbursement DECIMAL(6,2),
+    award_amount DECIMAL(6,2)
 )
 AS $$
 BEGIN
+    RETURN QUERY
+    SELECT 
+        CAST(CONCAT(first_name, ' ' , last_name) AS VARCHAR(64)) AS full_name,
+        r.employee_id, phone, e.email, e.address, r.start_date, r.start_time,
+        location, description, r.cost, gf.grading_format, r.passing_grade,
+        r.type_of_event, r.justification, r.final_grade, r.event_attachment, r.approval_attachment,
+        r.preapproval_type, r.work_missed,
+        (r.cost*coverage) AS projected_reimbursement, r.award_amount
+    FROM reimbursement r
+    JOIN employee e ON r.employee_id=username
+    JOIN grading_format gf ON grading_format_id=gf.id
+    JOIN event ON r.type_of_event=event.id
+    WHERE r.id=reim_id;
 
 END
 $$
 LANGUAGE plpgsql;
+SELECT * FROM fill_emp_details(1);
 
-select * from event;
 
 -- Event Type
 DROP FUNCTION get_events;
@@ -134,7 +172,7 @@ $$
 LANGUAGE plpgsql;
 -- SELECT * FROM get_events();
 
--- TODO: Populate reimbursement details for benco
+-- //TODO: Populate reimbursement details for benco
 
 
 -- Grading Format
@@ -178,6 +216,6 @@ LANGUAGE plpgsql;
 
 
 
--- TODO: An array of updates to reimbursement status
+-- //TODO: An array of updates to reimbursement status
 
 
