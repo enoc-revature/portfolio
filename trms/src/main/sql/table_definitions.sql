@@ -21,7 +21,6 @@ CREATE TABLE benco (
     password VARCHAR(64) NOT NULL,
     first_name VARCHAR(64),
     last_name VARCHAR(64),
-    address VARCHAR(64),
     email VARCHAR(64)
 
 );
@@ -37,9 +36,9 @@ CREATE TABLE status (
 
 DROP TABLE IF EXISTS event;
 CREATE TABLE event (
-    id VARCHAR(64) PRIMARY KEY,
+    id INT PRIMARY KEY,
     name VARCHAR(64),
-    coverage DECIMAL(6,2)
+    coverage DECIMAL(3,2)
 );
 
 DROP TABLE IF EXISTS grading_format;
@@ -78,7 +77,7 @@ CREATE TABLE reimbursement (
     grading_format_id INT,
     passing_grade VARCHAR(8),
     final_grade VARCHAR(8),
-    type_of_event VARCHAR(8),
+    type_of_event INT,
     justification TEXT,
     status_id INT,
     award_amount DECIMAL(6,2),
