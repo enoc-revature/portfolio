@@ -60,15 +60,15 @@ VALUES  ('BENCO_USERNAME', 'BENCO_PASSWORD', 'Ben', 'Co', 'BENCO@email.com'),
 -- One To Many
 -- DELETE FROM reimbursement;
 INSERT INTO reimbursement (
-    employee_id, supervisor_id, benco_id, description,
+    employee_id, supervisor_id, benco_id, urgent, description,
     location, start_date, start_time, cost, grading_format_id,
     passing_grade, final_grade, type_of_event, justification,
     status_id, award_amount)
-VALUES  ('TEST_USERNAME', 'TEST_SUPERVISOR', 'BENCO_USERNAME', 'TEST_DESCRIPTION1',
+VALUES  ('TEST_USERNAME', 'TEST_SUPERVISOR', 'BENCO_USERNAME', false, 'TEST_DESCRIPTION1',
             '555 TEST EVENT STREET', '2020-08-01', '09:00:00', 250.00, 1,
             'C', null, 4, 'TEST_JUSTIFICATION1',
             1,250.00),
-        ('TEST_USERNAME', 'TEST_SUPERVISOR', 'BENCO_USERNAME', 'TEST_DESCRIPTION2',
+        ('TEST_USERNAME', 'TEST_SUPERVISOR', 'BENCO_USERNAME', false, 'TEST_DESCRIPTION2',
             '555 TEST EVENT STREET', '2020-08-01', '11:00:00', 300.00, 1,
             'C', null, 4, 'TEST_JUSTIFICATION2',
             1,300.00);
