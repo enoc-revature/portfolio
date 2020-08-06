@@ -66,6 +66,7 @@ CREATE TABLE reimbursement (
     employee_id VARCHAR(64),
     supervisor_id VARCHAR(64),
     benco_id VARCHAR(64),
+    urgent BOOLEAN, -- Mark an unapproved request as urgent if the event occurs within 2 weeks.  
 
     -- Required from form
     description VARCHAR(64),
